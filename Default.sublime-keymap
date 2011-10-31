@@ -16,6 +16,14 @@
 		]
 	},
 
+	{ "keys": ["escape"], "command": "exit_visual_line_mode",
+		"context":
+		[
+			{ "key": "setting.command_mode" },
+			{ "key": "setting.is_widget", "operand": false }
+		]
+	},
+
 	{ "keys": ["ctrl+["], "command": "exit_insert_mode",
 		"context":
 		[

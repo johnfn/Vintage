@@ -693,6 +693,14 @@ class EnterVisualLineMode(sublime_plugin.TextCommand):
         expand_to_full_line(self.view)
         self.view.run_command('maybe_mark_undo_groups_for_gluing')
 
+class ExitVisualLineMode(sublime_plugin.TextCommand):
+    def run(self, edit):
+        g_input_state.motion_mode = MOTION_MODE_NORMAL
+        set_motion_mode(self.view, MOTION_MODE_NORMAL)
+         
+        self.view.run_command('unmark_undo_groups_for_gluing')
+        self.view.run_command('shrink_selections')
+
 class ShrinkSelections(sublime_plugin.TextCommand):
     def shrink(self, r):
         if r.empty():
